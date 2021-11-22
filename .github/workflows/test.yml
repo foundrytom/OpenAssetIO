@@ -1,4 +1,4 @@
-# A simple workflow to run tests using pytest against supported python versions
+# A simple workflow to run tests using pytest against supported Python versions
 
 name: Tests
 on: [ pull_request ]
