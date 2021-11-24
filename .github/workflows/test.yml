@@ -1,7 +1,10 @@
 # A simple workflow to run tests using pytest against supported Python versions
 
 name: Tests
-on: [ pull_request ]
+on:
+  pull_request:
+    branches-ignore:
+      - docs
 
 jobs:
   pytest:
