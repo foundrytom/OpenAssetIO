@@ -1,0 +1,26 @@
+name: "Docs"
+
+on: [ pull_request ]
+
+jobs:
+
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout source
+      uses: actions/checkout@v2
+
+    - name: Test
+      run: |
+        echo "::add-matcher::./.github/workflows/problem-matchers/doxygen.json"
+        # Problem matches don't actually error a step, so we have to manually
+        # check for warnings/errors at the end. Capture the output so we can
+        # parse it later.
+        make -C doc 2>&1 | tee doxygen-log.txt
+        echo "::remove-matcher owner=doxygen::"
+        # Fail the job if we have Doxygen warning/error lines in the output
+        # Note: Was unable to get the regex from the problem matcher to match
+        # with grep, when run in GitHub actions (worked fine locally).
+        ! grep -E "/src/.+:[0-9]+: ?(warning|error):" doxygen-log.txt
