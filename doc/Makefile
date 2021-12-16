@@ -1,7 +1,7 @@
 default: container-build
 
 ##
-# This Makefile builds the OAIO documentation bundle.
+# This Makefile builds the OpenAssetIO documentation bundle.
 #
 # By default it uses a Docker container and builds into the working
 # directory. A local build can be run using `make html`.

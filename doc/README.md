@@ -1,7 +1,7 @@
 # OpenAssetIO Documentation
 
-The OAIO docs are currently built with Doxygen - chosen as it is the
-simplest solution for a mixed Python and C++ project.
+The OpenAssetIO docs are currently built with Doxygen - chosen as it is
+the simplest solution for a mixed Python and C++ project.
 
 They make use of [doxypy](https://github.com/0xCAFEBABE/doxypy) to
 better document Python code with docstrings containing Doxygen
