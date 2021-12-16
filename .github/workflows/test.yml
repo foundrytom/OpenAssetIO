@@ -53,3 +53,17 @@ jobs:
         # to work with GNU grep.
         ! grep -qE "^.*?/src/[^:]+:[0-9]+: ?[a-zA-Z]+: ?.*$" doxygen-log.txt
 
+  business-language:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout source
+      uses: actions/checkout@v2
+
+    - name: Check business language
+      run: |
+        # Check that the acronym version of OpenAssetIO isn't in use
+        # in the code base (aside from here), see:
+        #   https://github.com/TheFoundryVisionmongers/OpenAssetIO/issues/153
+        ! grep -ir "oaio" . --exclude=test.yml
+
