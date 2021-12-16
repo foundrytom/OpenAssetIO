@@ -31,13 +31,13 @@ default: container-build
 #
 
 container-build: docker-image
-	docker run --rm -v `pwd`/../:/src oaio-doc-build bash -c 'make -C /src/doc html'
+	docker run --rm -v `pwd`/../:/src openassetio-doc-build bash -c 'make -C /src/doc html'
 
 docker-image: Dockerfile
-	docker build . -t oaio-doc-build
+	docker build . -t openassetio-doc-build
 
 clean-docker:
-	docker image rm oaio-doc-build --force
+	docker image rm openassetio-doc-build --force
 
 #
 # Local build - Invokes Doxygen locally

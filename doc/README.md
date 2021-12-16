@@ -14,8 +14,8 @@ Python classes.
 The simplest way to build the documentation is via Docker:
 
 ```
-docker build . -t oaio-doc-build
-docker run -v `pwd`/../:/src oaio-doc-build bash -c 'make -C /src/doc html'
+docker build . -t openassetio-doc-build
+docker run -v `pwd`/../:/src openassetio-doc-build bash -c 'make -C /src/doc html'
 ```
 
 If you have GNU Make installed on your system, the included `Makefile`
