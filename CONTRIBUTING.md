@@ -115,8 +115,8 @@ for reference and may be enabled and tweaked in future.
 
 ### Environment variables
 
-All environment variables should be prefixed with `OAIO_`. For example,
-`OAIO_LOGGING_SEVERITY`.
+All environment variables should be prefixed with `OPENASSETIO_`.
+For example, `OPENASSETIO_LOGGING_SEVERITY`.
 
 When documenting environment variables in docstrings or doxygen comment
 blocks, precede the variable name with the `@envvar` tag, which will
