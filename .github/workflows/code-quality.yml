@@ -1,6 +1,8 @@
 name: Code quality
 on: pull_request
 
+# OAIO code quality tests
+
 jobs:
   pylint:
     runs-on: ubuntu-latest

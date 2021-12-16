@@ -44,7 +44,7 @@ class TestHostSession():
     def test_log(self, host_session, mock_logger):
         mock_logger.reset_mock()
 
-        a_message = "A message"
+        a_oaio_message = "A message"
         a_severity = logging.LoggerInterface.kCritical
 
         host_session.log(a_message, a_severity)
