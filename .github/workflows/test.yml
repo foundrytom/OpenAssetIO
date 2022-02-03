@@ -20,19 +20,31 @@ jobs:
       with:
         python-version: 3.7
 
+    - name: Cache conan packages
+      id: cache-conan
+      uses: actions/cache@v2
+      with:
+        path: ~/conan
+        key: ${{ runner.os }}-conan
+
     - name: Install dependencies
       run: |
-        python -m pip install --upgrade pip
-        python -m pip install -r tests/requirements.txt
+        source ci/bootstrap.sh
 
-    - name: Build
+    - name: Configure
       run: |
-        python -m pip install .
+        cmake -S . -B build \
+          --install-prefix $GITHUB_WORKSPACE/dist \
+          --toolchain $HOME/conan/conan_paths.cmake \
+          -Wdev \
+          -DOPENASSETIO_ENABLE_TESTS=ON \
+          -DOPENASSETIO_WARNINGS_AS_ERRORS=ON \
+          -DCMAKE_VERBOSE_MAKEFILE=ON
 
-    - name: Test
-      # TODO(DF): Re-enable once CI work has been done.
+    - name: Build and test
       run: |
-        echo "Skipping tests until CI build environment is configured"
+        cd build
+        ctest -VV
 
   docs:
     runs-on: ubuntu-latest
