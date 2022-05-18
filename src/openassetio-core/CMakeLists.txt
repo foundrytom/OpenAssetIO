@@ -37,7 +37,7 @@ install(TARGETS openassetio-core EXPORT ${PROJECT_NAME}_EXPORTED_TARGETS)
 if(WIN32)
     install(TARGETS openassetio-core
         DESTINATION "${OPENASSETIO_PYTHON_SITEDIR}/openassetio")
-    install(FILES $<TARGET_PDB_FILE:openassetio-core>
+    install(FILES $<$<CONFIG:Debug,RelWithDebInfo>:<TARGET_PDB_FILE:openassetio-core>>
         CONFIGURATIONS "Debug" "RelWithDebInfo"
         DESTINATION "${OPENASSETIO_PYTHON_SITEDIR}/openassetio")
 endif()

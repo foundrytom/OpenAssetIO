@@ -21,7 +21,7 @@ set_target_properties(openassetio-python
 
 if(WIN32)
     set_target_properties(openassetio-python PROPERTIES SUFFIX ".pyd")
-    install(FILES $<TARGET_PDB_FILE:openassetio-python>
+    install(FILES $<$<CONFIG:Debug,RelWithDebInfo>:<TARGET_PDB_FILE:openassetio-python>>
         CONFIGURATIONS "Debug" "RelWithDebInfo"
         DESTINATION ${install_subdir})
 endif()
