@@ -13,24 +13,32 @@ jobs:
     name: ${{ matrix.config.os }}
     runs-on: ${{ matrix.config.os }}
     strategy:
+      fail-fast: false
       matrix:
         # We can't properly align to the VFX Reference Platform as this
         # requires glibc 2.17, which is older than any of the available
         # environments.
         config:
-        - os: windows-2019,
-          vcvars: "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise\\VC\\Auxiliary\\Build\\vcvars64.bat"
+        - os: windows-2019
+          toolchain: "$USERPROFILE/conan/conan_paths.cmake"
+          cmake-additional-args: "-G Ninja"
+          sanitizers: OFF
+          install-prefix: "$GITHUB_WORKSPACE/dist"
 
-        - os: ubuntu-20.04,
-          sanitizers: ON
+        - os: ubuntu-20.04
+          toolchain: "$HOME/conan/conan_paths.cmake"
+          sanitizers: ON,
+          install-prefix: "$GITHUB_WORKSPACE/dist"
 
-        - os: macos-10.15,
+        - os: macos-10.15
+          toolchain: "$HOME/conan/conan_paths.cmake"
           # asan needs the pre-load trick for python, ubsan seems to
           # have false positives:
           #   InfoDictionaryTest.cpp:346:25: runtime error:
           #      call to function openassetio_v0_0_InfoDictionary_getBool
           #      through pointer to incorrect function type
           sanitizers: OFF
+          install-prefix: "$GITHUB_WORKSPACE/dist"
 
     steps:
     - uses: actions/checkout@v2
@@ -40,6 +48,10 @@ jobs:
       with:
         # CY2022 (https://vfxplatform.com)
         python-version: 3.9
+
+    - name: Set up Visual Studio
+      if: runner.os == 'Windows'
+      uses: microsoft/setup-msbuild@v1.1
 
     - name: Cache conan packages
       id: cache-conan
@@ -62,40 +74,22 @@ jobs:
       run: |
         cmd /C resources\build\bootstrap-${{ matrix.config.os }}.bat
 
-    - name: Configure CMake build (Unix)
-      if: runner.os != 'Windows'
+    - name: Configure CMake build
+      shell: bash
       run: >
-        cmake -S . -B build 
-        --install-prefix $GITHUB_WORKSPACE/dist 
-        --toolchain $HOME/conan/conan_paths.cmake 
-        -DCMAKE_VERBOSE_MAKEFILE=ON 
-        -DOPENASSETIO_ENABLE_TESTS=ON 
+        cmake -S . -B build
+        ${{ matrix.config.cmake-additional-args }}
+        --install-prefix ${{ matrix.config.install-prefix }}
+        --toolchain ${{matrix.config.toolchain }}
+        -DCMAKE_VERBOSE_MAKEFILE=ON
+        -DOPENASSETIO_ENABLE_TESTS=ON
         -DOPENASSETIO_ENABLE_SANITIZER_ADDRESS=${{ matrix.config.sanitizers }}
         -DOPENASSETIO_ENABLE_SANITIZER_UNDEFINED_BEHAVIOR=${{ matrix.config.sanitizers }}
 
-    - name: Configure CMake build (Windows)
-      if: runner.os == 'Windows'
-      run: >
-        call "${{ matrix.config.vcvars }}"
-        
-        cmake -G Ninja -S . -B build --install-prefix %GITHUB_WORKSPACE%\dist
-        --toolchain %USERPROFILE%\conan\conan_paths.cmake -DCMAKE_VERBOSE_MAKEFILE=ON
-        -DOPENASSETIO_ENABLE_TESTS=ON
-      shell: cmd
-
-    - name: Build, install and test (Unix)
-      if: runner.os != 'Windows'
+    - name: Build, install and test
       run: |
         cd build
         ctest -VV
-
-    - name: Build, install and test (Windows)
-      if: runner.os == 'Windows'
-      run: |
-        cd build
-        call "${{ matrix.config.vcvars }}"
-        ctest -VV
-      shell: cmd
 
   docs:
     runs-on: ubuntu-latest
