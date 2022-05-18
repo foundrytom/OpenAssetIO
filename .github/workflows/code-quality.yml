@@ -24,7 +24,7 @@ jobs:
           python -m pip install .
 
       - name: Lint
-        uses: TheFoundryVisionmongers/fn-pylint-action@v1.1
+        uses: TheFoundryVisionmongers/fn-pylint-action@v1.1.1-beta.1
         with:
           pylint-disable: fixme  # We track 'todo's through other means
           pylint-rcfile: "./pyproject.toml"
