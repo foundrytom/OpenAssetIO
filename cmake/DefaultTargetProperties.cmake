@@ -116,7 +116,7 @@ function(set_default_target_properties target_name)
     # (if both are set then RPATH is ignored). They each cause different
     # runtime search path behavior. So be explicit to ensure we are
     # consistent across distros.
-    if (IS_GCC_OR_CLANG AND NOT APPLE)
+    if (IS_GCC_OR_CLANG AND NOT APPLE AND NOT WIN32)
         if (OPENASSETIO_ENABLE_NEW_DTAGS)
             target_link_options(${target_name} PRIVATE "-Wl,--enable-new-dtags")
         else ()
