@@ -21,6 +21,9 @@ v1.0.0-alpha.X
   new or false-positive warnings.
   [#392](https://github.com/OpenAssetIO/OpenAssetIO/issues/392)
 
+- Added CMake presets for development and testing.
+  [#315](https://github.com/OpenAssetIO/OpenAssetIO/issues/315)
+
 
 ### Bug fixes
 
