@@ -1,0 +1,51 @@
+"""
+{{ namespace }} Traits
+"""
+
+from typing import Union
+
+import openassetio
+
+{% for trait in declarations %}
+
+class {{ trait.name | toPyClassName }}Trait(openassetio.Trait):
+    """
+    {{ trait.description | wordwrap(68) | indent(4) }}
+    """
+    kId = "{{ trait.id }}"
+
+    {% if trait.properties -%}
+        {% for property in trait.properties -%}
+            {% set VarMethodName = property.id | toUpperCamelAlnum -%}
+            {% set VarName = property.id | toPyVarName -%}
+            {% set VarType = property.type | toPyType -%}
+    def set{{ VarMethodName }}(self, {{ VarName }}: {{ VarType }}):
+        """
+        Sets the {{ property.id }}.
+
+        {{ property.description | wordwrap(64) | indent(8) }}
+        """
+        if not isinstance({{ VarName }}, {{ VarType }}):
+            raise TypeError("{{ property.id }} must be a '{{ VarType }}'")
+        self._specification.setTraitProperty(self.kId, "{{ property.id }}", {{ VarName }})
+
+    def get{{ VarMethodName }}(self, defaultValue: {{ VarType }}=None) -> Union[{{ VarType }}, None]:
+        """
+        Gets the {{ property.id }}.
+
+        {{ property.description | wordwrap(64) | indent(8) }}
+        """
+        value = self._specification.getTraitProperty(self.kId, "{{ property.id }}")
+        if value is None:
+            return defaultValue
+        if not isinstance(value, {{ VarType }}):
+            if defaultValue is None:
+                raise TypeError(f"Invalid stored value type: '{value}' [{type(value).__name__}] should be '{{ VarType }}'.")
+            return defaultValue
+        return value
+
+        {%  endfor -%}
+    {% endif -%}
+
+
+{% endfor %}

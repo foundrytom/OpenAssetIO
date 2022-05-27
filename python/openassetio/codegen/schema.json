@@ -1,0 +1,127 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "OpenAssetIO Codegen schema",
+  "description": "A package of abstract definitions of OpenAssetIO Traits and Specifications",
+  "type": "object",
+  "properties": {
+    "description": {
+      "type": "string",
+      "description": "A description of this package"
+    },
+    "package": {
+      "type": "string",
+      "description": "The package all classes defined by this definition will live in. The package is concatenated with each identifier for uniqueness."
+    },
+    "traits": {
+      "type": "object",
+      "description": "Trait definitions, the key combined with the package name to form the unique identifier for each trait, and is used to form the class name in generated code. The trait ID will take the form: `<package>.<identifier>`",
+      "patternProperties": {
+        ".*": {
+          "type": "object",
+          "properties": {
+            "description": {
+              "type": "string",
+              "description": "A description of the trait and its uses",
+              "minLength": 1
+            },
+            "properties": {
+              "type": "object",
+              "patternProperties": {
+                ".*": {
+                  "type": "object",
+                  "properties": {
+                    "description": {
+                      "type": "string",
+                      "description": "A description of the value held by the property and its use",
+                      "minLength": 1
+                    },
+                    "type": {
+                      "description": "The type of the value held by the property",
+                      "type": "string",
+                      "enum": [
+                        "string",
+                        "integer",
+                        "float",
+                        "boolean",
+                        "dictionary"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "description",
+                    "type"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "usage": {
+              "description": "The potential use cases for the specification",
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "entity",
+                  "relationship",
+                  "locale",
+                  "managementPolicy"
+                ]
+              }
+            }
+          },
+          "required": [
+            "description"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    "specifications": {
+      "type": "object",
+      "description": "Specification definitions, the key is the unique identifier for each specification within the package and is used to form the class name in generated code",
+      "patternProperties": {
+        ".*": {
+          "type": "object",
+          "properties": {
+            "description": {
+              "type": "string",
+              "description": "A description of the specification and its uses",
+              "minLength": 1
+            },
+            "traitsIds": {
+              "description": "The trait ids composed by the specification",
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "minItems": 1
+            },
+            "usage": {
+              "description": "The potential use cases for the specification",
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "entity",
+                  "relationship",
+                  "locale",
+                  "managementPolicy"
+                ]
+              }
+            }
+          },
+          "required": [
+            "description",
+            "traitIds"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "required": [
+    "package"
+  ],
+  "additionalProperties": false
+}

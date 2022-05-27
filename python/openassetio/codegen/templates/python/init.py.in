@@ -1,0 +1,6 @@
+{% if package.traits -%}
+from . import traits
+{% endif -%}
+{% if package.specifications -%}
+from . import specifications
+{% endif -%}

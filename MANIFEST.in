@@ -1,0 +1,2 @@
+include python/openassetio/codegen/schema.json
+recursive-include python/openassetio/codegen/templates
