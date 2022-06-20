@@ -51,6 +51,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
+      <li><a href="modules.html"><span>Modules</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -116,15 +117,16 @@ $(document).ready(function(){initNavTree('classopenassetio_1_1exceptions_1_1_ent
 </div><!--header-->
 <div class="contents">
 
-<p>Thrown during <a class="el" href="glossary.html#entity">entity</a> resolution, if the Entity is valid, but has no meaningful <a class="el" href="glossary.html#primary_string">Primary String</a>, or it can't be retrieved for some other reason.  
+<p>Thrown during <a class="el" href="glossary.html#entity">entity</a> resolution, if the Entity is valid, but has no meaningful data to be resolved, or it can't be retrieved for some other reason.  
  <a href="classopenassetio_1_1exceptions_1_1_entity_resolution_error.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for EntityResolutionError:</div>
 <div class="dyncontent">
 <div class="center"><img src="classopenassetio_1_1exceptions_1_1_entity_resolution_error__inherit__graph.png" border="0" usemap="#_entity_resolution_error_inherit__map" alt="Inheritance graph"/></div>
 <map name="_entity_resolution_error_inherit__map" id="_entity_resolution_error_inherit__map">
-<area shape="rect" id="node2" href="classopenassetio_1_1exceptions_1_1_base_entity_exception.html" title="A base Exception for any entity related errors to ensure consistent presentation and encapsulation of..." alt="" coords="7,155,163,181"/>
-<area shape="rect" id="node3" href="classopenassetio_1_1exceptions_1_1_o_a_i_o_exception.html" title="The OAIOException class should be used for all exceptions raise by Managers and any API&#45;related excep..." alt="" coords="26,80,145,107"/>
+<area shape="rect" id="node2" href="classopenassetio_1_1exceptions_1_1_base_entity_exception.html" title="A base Exception for any entity related errors to ensure consistent presentation and encapsulation of..." alt="" coords="13,229,169,256"/>
+<area shape="rect" id="node3" href="classopenassetio_1_1exceptions_1_1_manager_exception.html" title="A base class for exceptions relating to, or raised by a manager. " alt="" coords="19,155,162,181"/>
+<area shape="rect" id="node4" href="classopenassetio_1_1exceptions_1_1_open_asset_i_o_exception.html" title="The OpenAssetIOException class should be used for all exceptions raise by Managers and any API&#45;relate..." alt="" coords="5,80,176,107"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -145,7 +147,7 @@ Additional Inherited Members</h2></td></tr>
 <tr class="separator:a6752968761dc456fe241271e0b76440b inherit pub_attribs_classopenassetio_1_1exceptions_1_1_base_entity_exception"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Thrown during <a class="el" href="glossary.html#entity">entity</a> resolution, if the Entity is valid, but has no meaningful <a class="el" href="glossary.html#primary_string">Primary String</a>, or it can't be retrieved for some other reason. </p>
+<div class="textblock"><p>Thrown during <a class="el" href="glossary.html#entity">entity</a> resolution, if the Entity is valid, but has no meaningful data to be resolved, or it can't be retrieved for some other reason. </p>
 <p>It is also used during version finalisation and any other entity-based operations on a valid <a class="el" href="glossary.html#entity_reference">Entity Reference</a> that fail for some reason. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a280f105f32fc7508d8f44658ef9fa404"></a>

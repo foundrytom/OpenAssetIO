@@ -51,6 +51,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
+      <li><a href="modules.html"><span>Modules</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -129,11 +130,9 @@ Inheritance diagram for HostSession:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ac218e36da87e2cc61ec1ead38dda130e"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classopenassetio_1_1manager_a_p_i_1_1_host_session_1_1_host_session.html#ac218e36da87e2cc61ec1ead38dda130e">__init__</a> (self, <a class="el" href="classopenassetio_1_1manager_a_p_i_1_1_host_session_1_1_host_session.html#a220724271877e8cdd21b98525bb92ad1">host</a>, logger)</td></tr>
+<tr class="memitem:ac218e36da87e2cc61ec1ead38dda130e"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classopenassetio_1_1manager_a_p_i_1_1_host_session_1_1_host_session.html#ac218e36da87e2cc61ec1ead38dda130e">__init__</a> (self, host, logger)</td></tr>
 <tr class="memdesc:ac218e36da87e2cc61ec1ead38dda130e"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="classopenassetio_1_1manager_a_p_i_1_1_host_session_1_1_host_session.html" title="The HostSession is a manager-facing class that represents a discreet API session started by a host in...">HostSession</a> should not be directly constructed.  <a href="#ac218e36da87e2cc61ec1ead38dda130e">More...</a><br /></td></tr>
 <tr class="separator:ac218e36da87e2cc61ec1ead38dda130e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a220724271877e8cdd21b98525bb92ad1"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classopenassetio_1_1manager_a_p_i_1_1_host_session_1_1_host_session.html#a220724271877e8cdd21b98525bb92ad1">host</a> (self)</td></tr>
-<tr class="separator:a220724271877e8cdd21b98525bb92ad1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3d98eb4bcc27668915b50e5d279ef426"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classopenassetio_1_1manager_a_p_i_1_1_host_session_1_1_host_session.html#a3d98eb4bcc27668915b50e5d279ef426">log</a> (self, message, severity)</td></tr>
 <tr class="memdesc:a3d98eb4bcc27668915b50e5d279ef426"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs a message to the user.  <a href="#a3d98eb4bcc27668915b50e5d279ef426">More...</a><br /></td></tr>
 <tr class="separator:a3d98eb4bcc27668915b50e5d279ef426"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -160,14 +159,14 @@ Static Public Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The <a class="el" href="classopenassetio_1_1manager_a_p_i_1_1_host_session_1_1_host_session.html" title="The HostSession is a manager-facing class that represents a discreet API session started by a host in...">HostSession</a> is a manager-facing class that represents a discreet API session started by a <a class="el" href="glossary.html#host">host</a> in order to communicate with a manager. </p>
-<p>Any generalised API interactions a Manager may wish to make with a <a class="el" href="namespaceopenassetio_1_1manager_a_p_i_1_1_host.html">Host</a> should be performed through the <a class="el" href="classopenassetio_1_1manager_a_p_i_1_1_host_session_1_1_host_session.html" title="The HostSession is a manager-facing class that represents a discreet API session started by a host in...">HostSession</a> instance supplied with any <a class="el" href="namespaceopenassetio_1_1manager_a_p_i_1_1_manager_interface.html">ManagerInterface</a> entrypoint. These objects should not be directly constructed, cached or otherwise persisted by a Manager.</p>
+<p>Any generalised API interactions a Manager may wish to make with a Host should be performed through the <a class="el" href="classopenassetio_1_1manager_a_p_i_1_1_host_session_1_1_host_session.html" title="The HostSession is a manager-facing class that represents a discreet API session started by a host in...">HostSession</a> instance supplied with any <a class="el" href="namespaceopenassetio_1_1manager_a_p_i_1_1_manager_interface.html" title="A single-class module, providing the ManagerInterface class. ">ManagerInterface</a> entrypoint. These objects should not be directly constructed, cached or otherwise persisted by a Manager.</p>
 <p>The <a class="el" href="classopenassetio_1_1manager_a_p_i_1_1_host_session_1_1_host_session.html" title="The HostSession is a manager-facing class that represents a discreet API session started by a host in...">HostSession</a> provides access to:</p><ul>
-<li>A concrete instance of the <a class="el" href="namespaceopenassetio_1_1host_a_p_i_1_1_host_interface.html">openassetio.hostAPI.HostInterface</a>, implemented by the tool or application that initiated the API session.</li>
+<li>A concrete instance of the <a class="el" href="classopenassetio_1_1v1_1_1host_a_p_i_1_1_host_interface.html">HostInterface</a>, implemented by the tool or application that initiated the API session.</li>
 <li>A logging callback. All user-facing messaging should be directed through this entrypoint. This ensures it will be appropriately presented to the user.</li>
 </ul>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="classopenassetio_1_1manager_a_p_i_1_1_host_session_1_1_host_session.html#a3d98eb4bcc27668915b50e5d279ef426" title="Logs a message to the user. ">log()</a> </dd>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="namespaceopenassetio_1_1log.html">log</a> </dd>
 <dd>
-openassetio.HostInterface.HostInterface </dd></dl>
+<a class="el" href="classopenassetio_1_1v1_1_1host_a_p_i_1_1_host_interface.html">HostInterface</a> </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="ac218e36da87e2cc61ec1ead38dda130e"></a>
 <div class="memitem">
@@ -205,23 +204,6 @@ openassetio.HostInterface.HostInterface </dd></dl>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a220724271877e8cdd21b98525bb92ad1"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">def host </td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>self</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>A <a class="el" href="classopenassetio_1_1host_a_p_i_1_1_host_interface_1_1_host_interface.html">HostInterface</a> implementation. </dd></dl>
-
-</div>
-</div>
 <a class="anchor" id="a3d98eb4bcc27668915b50e5d279ef426"></a>
 <div class="memitem">
 <div class="memproto">
@@ -254,7 +236,7 @@ openassetio.HostInterface.HostInterface </dd></dl>
 
 <p>Logs a message to the user. </p>
 <p>All user-facing messaging should be routed though this method. It will be mapped to the correct host sub-systems to ensure that it is presented correctly.</p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="namespaceopenassetio_1_1logging.html">openassetio.logging</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="namespaceopenassetio_1_1log.html">log</a> </dd></dl>
 
 </div>
 </div>

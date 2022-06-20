@@ -51,6 +51,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
+      <li><a href="modules.html"><span>Modules</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -83,17 +84,21 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions.html"><span>All</span></a></li>
       <li><a href="functions_func.html"><span>Functions</span></a></li>
       <li class="current"><a href="functions_vars.html"><span>Variables</span></a></li>
-      <li><a href="functions_prop.html"><span>Properties</span></a></li>
+      <li><a href="functions_type.html"><span>Typedefs</span></a></li>
+      <li><a href="functions_enum.html"><span>Enumerations</span></a></li>
+      <li><a href="functions_eval.html"><span>Enumerator</span></a></li>
     </ul>
   </div>
   <div id="navrow4" class="tabs3">
     <ul class="tablist">
+      <li><a href="#index_a"><span>a</span></a></li>
       <li><a href="#index_c"><span>c</span></a></li>
       <li><a href="#index_d"><span>d</span></a></li>
       <li><a href="#index_e"><span>e</span></a></li>
       <li><a href="#index_i"><span>i</span></a></li>
       <li><a href="#index_k"><span>k</span></a></li>
-      <li><a href="#index_n"><span>n</span></a></li>
+      <li><a href="#index_l"><span>l</span></a></li>
+      <li><a href="#index_m"><span>m</span></a></li>
       <li><a href="#index_o"><span>o</span></a></li>
       <li><a href="#index_r"><span>r</span></a></li>
       <li><a href="#index_s"><span>s</span></a></li>
@@ -132,22 +137,36 @@ $(document).ready(function(){initNavTree('functions_vars.html','');});
 <div class="contents">
 &#160;
 
-<h3><a class="anchor" id="index_c"></a>- c -</h3><ul>
-<li>cancelOnException
-: <a class="el" href="classopenassetio_1_1host_a_p_i_1_1transactions_1_1_scoped_action_group.html#aad2294128a03d0d62b962dbcd67e13e9">ScopedActionGroup</a>
+<h3><a class="anchor" id="index_a"></a>- a -</h3><ul>
+<li>access
+: <a class="el" href="structopenassetio_1_1v1_1_1_context.html#afa638703bb82b42a1ea42c3b134ec0cd">Context</a>
 </li>
-<li>classMap
-: <a class="el" href="classopenassetio_1_1_specification_factory_1_1_specification_factory.html#af59e6c12b79ce6260440164007c755aa">SpecificationFactory</a>
+</ul>
+
+
+<h3><a class="anchor" id="index_c"></a>- c -</h3><ul>
+<li>capacity
+: <a class="el" href="structoa___string_view.html#a90557000426d4245a121ca4f5fd92299">oa_StringView</a>
 </li>
 </ul>
 
 
 <h3><a class="anchor" id="index_d"></a>- d -</h3><ul>
+<li>data
+: <a class="el" href="structoa___const_string_view.html#ae62ff5b9a94eb24120cdac857594d217">oa_ConstStringView</a>
+, <a class="el" href="structoa___string_view.html#ac075fa2232ae3f2d7dc9de4bf5192e97">oa_StringView</a>
+</li>
 <li>dataName
 : <a class="el" href="classopenassetio_1_1__core_1_1objects_1_1_untyped_property.html#af5934144fbb5055a5883af563fdb3739">UntypedProperty</a>
 </li>
 <li>dataVar
 : <a class="el" href="classopenassetio_1_1__core_1_1objects_1_1_untyped_property.html#aec8bb2949600a452c788c5932f036565">UntypedProperty</a>
+</li>
+<li>displayName
+: <a class="el" href="structoa__manager_a_p_i___c_manager_interface__s.html#a0bf4d5a74e5a659b32508a651314eae8">oa_managerAPI_CManagerInterface_s</a>
+</li>
+<li>dtor
+: <a class="el" href="structoa__manager_a_p_i___c_manager_interface__s.html#aefc3df52925c09f10a98c17dfefbd2f8">oa_managerAPI_CManagerInterface_s</a>
 </li>
 </ul>
 
@@ -160,6 +179,12 @@ $(document).ready(function(){initNavTree('functions_vars.html','');});
 
 
 <h3><a class="anchor" id="index_i"></a>- i -</h3><ul>
+<li>identifier
+: <a class="el" href="structoa__manager_a_p_i___c_manager_interface__s.html#a14feefda2e6a1f900e2a9a6ea04cdfc8">oa_managerAPI_CManagerInterface_s</a>
+</li>
+<li>info
+: <a class="el" href="structoa__manager_a_p_i___c_manager_interface__s.html#a7c0aea3903599a523d90d2b7cb8dfe96">oa_managerAPI_CManagerInterface_s</a>
+</li>
 <li>initialValue
 : <a class="el" href="classopenassetio_1_1__core_1_1objects_1_1_untyped_property.html#af60486b6f2c0da7f34855e90d9cb45b3">UntypedProperty</a>
 </li>
@@ -167,27 +192,32 @@ $(document).ready(function(){initNavTree('functions_vars.html','');});
 
 
 <h3><a class="anchor" id="index_k"></a>- k -</h3><ul>
+<li>kAccessNames
+: <a class="el" href="structopenassetio_1_1v1_1_1_context.html#ab0785204b0582eca42bf5c30cbf920c3">Context</a>
+</li>
 <li>kCritical
-: <a class="el" href="classopenassetio_1_1logging_1_1_logger_interface.html#a43805953da1a721196df337104feabd2">LoggerInterface</a>
+: <a class="el" href="classopenassetio_1_1log_1_1_logger_interface.html#a43805953da1a721196df337104feabd2">LoggerInterface</a>
 , <a class="el" href="classopenassetio_1_1manager_a_p_i_1_1_host_session_1_1_host_session.html#a09df177326ffacc9d8c74913e79fc9f3">HostSession</a>
 </li>
 <li>kDebug
-: <a class="el" href="classopenassetio_1_1logging_1_1_logger_interface.html#a4cb5966014ce54fa89ec59d69dc6c23e">LoggerInterface</a>
+: <a class="el" href="classopenassetio_1_1log_1_1_logger_interface.html#a4cb5966014ce54fa89ec59d69dc6c23e">LoggerInterface</a>
 , <a class="el" href="classopenassetio_1_1manager_a_p_i_1_1_host_session_1_1_host_session.html#a12e63825bb15eb9bbd6f74d2982e952c">HostSession</a>
 </li>
 <li>kDebugAPI
-: <a class="el" href="classopenassetio_1_1logging_1_1_logger_interface.html#a8430b2db29ff178d566f473b9a7749c7">LoggerInterface</a>
+: <a class="el" href="classopenassetio_1_1log_1_1_logger_interface.html#a8430b2db29ff178d566f473b9a7749c7">LoggerInterface</a>
 , <a class="el" href="classopenassetio_1_1manager_a_p_i_1_1_host_session_1_1_host_session.html#aa3d0491c0ab093968f1a75c122e7252e">HostSession</a>
 </li>
 <li>kError
-: <a class="el" href="classopenassetio_1_1logging_1_1_logger_interface.html#a98a6db14778ed287fa8b2ee81612d83c">LoggerInterface</a>
+: <a class="el" href="classopenassetio_1_1log_1_1_logger_interface.html#a98a6db14778ed287fa8b2ee81612d83c">LoggerInterface</a>
 , <a class="el" href="classopenassetio_1_1manager_a_p_i_1_1_host_session_1_1_host_session.html#a5f0ef6efde97ea66ceaa10242a50a520">HostSession</a>
 </li>
-<li>kIgnored
-: <a class="el" href="classopenassetio_1_1_context_1_1_context.html#ad40cf66a6f97f98b7901f82f5c520e98">Context</a>
+<li>kId
+: <a class="el" href="classopenassetio_1_1test_1_1manager_1_1specifications_1_1_manager_trait.html#a6e3a65680e4e6d7e0c76f3c6b73238ba">ManagerTrait</a>
+, <a class="el" href="classopenassetio_1_1test_1_1specifications_1_1_harness_trait.html#a6e3a65680e4e6d7e0c76f3c6b73238ba">HarnessTrait</a>
+, <a class="el" href="classopenassetio_1_1test_1_1specifications_1_1_test_trait.html#a6e3a65680e4e6d7e0c76f3c6b73238ba">TestTrait</a>
 </li>
 <li>kInfo
-: <a class="el" href="classopenassetio_1_1logging_1_1_logger_interface.html#ad7d273973881e5a20023a65b3301202e">LoggerInterface</a>
+: <a class="el" href="classopenassetio_1_1log_1_1_logger_interface.html#ad7d273973881e5a20023a65b3301202e">LoggerInterface</a>
 , <a class="el" href="classopenassetio_1_1manager_a_p_i_1_1_host_session_1_1_host_session.html#a43608ad7833b0aac20cba06a66778e2a">HostSession</a>
 </li>
 <li>kKey_Args
@@ -196,53 +226,40 @@ $(document).ready(function(){initNavTree('functions_vars.html','');});
 <li>kKey_Count
 : <a class="el" href="classopenassetio_1_1__core_1_1audit_1_1_auditor.html#a3cb086c6ccd3a57bd2dbbfb351cadb36">Auditor</a>
 </li>
-<li>kOther
-: <a class="el" href="classopenassetio_1_1_context_1_1_context.html#a41269a9f947a16b48690b4b9a30a0593">Context</a>
-</li>
-<li>kPermanent
-: <a class="el" href="classopenassetio_1_1_context_1_1_context.html#a609478f81d279b9f033bfa5f8bf5cd81">Context</a>
-</li>
 <li>kPluginEnvVar
 : <a class="el" href="classopenassetio_1_1plugin_system_1_1_plugin_system_manager_factory_1_1_plugin_system_manager_factory.html#a5117f2e3c85104ade8c2a57828904e75">PluginSystemManagerFactory</a>
 </li>
 <li>kProgress
-: <a class="el" href="classopenassetio_1_1logging_1_1_logger_interface.html#a34453aca18cad53a51b856cdfa9cd1bd">LoggerInterface</a>
+: <a class="el" href="classopenassetio_1_1log_1_1_logger_interface.html#a34453aca18cad53a51b856cdfa9cd1bd">LoggerInterface</a>
 , <a class="el" href="classopenassetio_1_1manager_a_p_i_1_1_host_session_1_1_host_session.html#a953866c5d6fdd08eadf3bade2d3988a2">HostSession</a>
 </li>
-<li>kRead
-: <a class="el" href="classopenassetio_1_1_context_1_1_context.html#ab9ee23bc3d38553ce2fbeb65e3a5951b">Context</a>
-</li>
-<li>kReadMultiple
-: <a class="el" href="classopenassetio_1_1_context_1_1_context.html#af5f22b6a286f3f25a34d1bd8d307de46">Context</a>
-</li>
 <li>kRetentionNames
-: <a class="el" href="classopenassetio_1_1_context_1_1_context.html#adc1520376bf432286da6c056cf1c5fa4">Context</a>
-</li>
-<li>kSession
-: <a class="el" href="classopenassetio_1_1_context_1_1_context.html#a67f92dd3f04b88f8a8a610f6556b7014">Context</a>
+: <a class="el" href="structopenassetio_1_1v1_1_1_context.html#a0d4f9c0297edb401d6b9bac6c0fb32e4">Context</a>
 </li>
 <li>kSeverityNames
-: <a class="el" href="classopenassetio_1_1logging_1_1_logger_interface.html#a61a19d1d5ca277bb3b290d0f83dee2dc">LoggerInterface</a>
+: <a class="el" href="classopenassetio_1_1log_1_1_logger_interface.html#a61a19d1d5ca277bb3b290d0f83dee2dc">LoggerInterface</a>
 </li>
-<li>kTransient
-: <a class="el" href="classopenassetio_1_1_context_1_1_context.html#a3858caf97b9a5b89c2c3211614736f27">Context</a>
+<li>kTraitSet
+: <a class="el" href="classopenassetio_1_1test_1_1manager_1_1specifications_1_1_manager_test_harness_locale.html#a3573e751580ba06c9da69a853173dd70">ManagerTestHarnessLocale</a>
+, <a class="el" href="classopenassetio_1_1test_1_1specifications_1_1_test_harness_locale.html#a7e57e516ab8013fc97a8638d17fb2d07">TestHarnessLocale</a>
 </li>
 <li>kWarning
-: <a class="el" href="classopenassetio_1_1logging_1_1_logger_interface.html#a8e9a05370122b9d770459d2015d04fad">LoggerInterface</a>
+: <a class="el" href="classopenassetio_1_1log_1_1_logger_interface.html#a8e9a05370122b9d770459d2015d04fad">LoggerInterface</a>
 , <a class="el" href="classopenassetio_1_1manager_a_p_i_1_1_host_session_1_1_host_session.html#aebf75aac5e62b537d37c9faa398266e2">HostSession</a>
-</li>
-<li>kWrite
-: <a class="el" href="classopenassetio_1_1_context_1_1_context.html#ae92b57b08be8ef71d3b17c46303d811b">Context</a>
-</li>
-<li>kWriteMultiple
-: <a class="el" href="classopenassetio_1_1_context_1_1_context.html#ae5d2ea978049a279b83cfdbf41cfd13a">Context</a>
 </li>
 </ul>
 
 
-<h3><a class="anchor" id="index_n"></a>- n -</h3><ul>
-<li>nameHint
-: <a class="el" href="classopenassetio_1_1specifications_1_1_entity_specification.html#a29d6a73cf377260ad7bbd9ca1f7f346b">EntitySpecification</a>
+<h3><a class="anchor" id="index_l"></a>- l -</h3><ul>
+<li>locale
+: <a class="el" href="structopenassetio_1_1v1_1_1_context.html#ab46b43ae312ee13e8e17e4ee207bcbcf">Context</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_m"></a>- m -</h3><ul>
+<li>managerState
+: <a class="el" href="structopenassetio_1_1v1_1_1_context.html#a0db519ea93f514ded47d6d4f686ad8a3">Context</a>
 </li>
 </ul>
 
@@ -258,13 +275,17 @@ $(document).ready(function(){initNavTree('functions_vars.html','');});
 <li>ref
 : <a class="el" href="classopenassetio_1_1exceptions_1_1_base_entity_exception.html#a6752968761dc456fe241271e0b76440b">BaseEntityException</a>
 </li>
-<li>referenceHint
-: <a class="el" href="classopenassetio_1_1specifications_1_1_entity_specification.html#aba5553c9b2ead9e2f55f02a34c58bd4d">EntitySpecification</a>
+<li>retention
+: <a class="el" href="structopenassetio_1_1v1_1_1_context.html#a34b480a2451ed6f4d24f10e291826820">Context</a>
 </li>
 </ul>
 
 
 <h3><a class="anchor" id="index_s"></a>- s -</h3><ul>
+<li>size
+: <a class="el" href="structoa___const_string_view.html#a685609860d73ccd0d45ada287ab9ab5f">oa_ConstStringView</a>
+, <a class="el" href="structoa___string_view.html#a854352f53b148adc24983a58a1866d66">oa_StringView</a>
+</li>
 <li>start
 : <a class="el" href="classopenassetio_1_1__core_1_1debug_1_1___timer.html#a550769bbd4e7537ff90a656f5b0c23b2">_Timer</a>
 </li>
@@ -272,9 +293,6 @@ $(document).ready(function(){initNavTree('functions_vars.html','');});
 
 
 <h3><a class="anchor" id="index_t"></a>- t -</h3><ul>
-<li>thumbnailPath
-: <a class="el" href="classopenassetio_1_1specifications_1_1_entity_specification.html#acd7c4f815da53acf01ac8f279249aaf0">EntitySpecification</a>
-</li>
 <li>typ
 : <a class="el" href="classopenassetio_1_1__core_1_1objects_1_1_typed_property.html#a5574a1c4b4703a8658c3463fdbde74f3">TypedProperty</a>
 </li>

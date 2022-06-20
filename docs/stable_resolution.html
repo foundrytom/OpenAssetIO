@@ -51,6 +51,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li class="current"><a href="pages.html"><span>Related&#160;Pages</span></a></li>
+      <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -114,7 +115,7 @@ Overview</h1>
 <h1><a class="anchor" id="stable_resolution_manager_state"></a>
 Manager State</h1>
 <p>The manager state mechanism allows a <a class="el" href="glossary.html#manager">manager</a> to embed state within the <a class="el" href="glossary.html#host">host</a>, such that it can correlate API calls.</p>
-<p>Whenever a <a class="el" href="glossary.html#Context">Context</a> is created by the host, the <a class="el" href="classopenassetio_1_1manager_a_p_i_1_1_manager_interface_1_1_manager_interface.html#abe56a91c7f91bb3b2789941e3d400d5e">ManagerInterface.createState</a> method will be called, and the returned token stored in the Context's <a class="el" href="classopenassetio_1_1_context_1_1_context.html#a4cb291e310d3a1174c83b124bacbeef1">managerInterfaceState</a> property.</p>
+<p>Whenever a <a class="el" href="glossary.html#Context">Context</a> is created by the host, the <a class="el" href="classopenassetio_1_1manager_a_p_i_1_1_manager_interface_1_1_manager_interface.html#a4ce2720f1e8c3859230a910c17d80128">ManagerInterface.createState</a> (or <a class="el" href="classopenassetio_1_1manager_a_p_i_1_1_manager_interface_1_1_manager_interface.html#a7750cb6bf5b3fa91ff15c505e26ee2c8">ManagerInterface.createChildState</a>) method will be called, and the returned token stored in the Context's <a class="el" href="structopenassetio_1_1v1_1_1_context.html#a0db519ea93f514ded47d6d4f686ad8a3">managerState</a> property.</p>
 <div align="center">
 <img src="inline_umlgraph_1.png" />
 </div>
@@ -122,20 +123,18 @@ Manager State</h1>
 <h1><a class="anchor" id="stable_resolution_manager_state_distribution"></a>
 Distributed Processing</h1>
 <p>Distributed processing requires the same context to be shared by multiple discrete working processes.</p>
-<p>The <a class="el" href="classopenassetio_1_1host_a_p_i_1_1transactions_1_1_transaction_coordinator.html">TransactionCoordinator's</a> <a class="el" href="classopenassetio_1_1host_a_p_i_1_1transactions_1_1_transaction_coordinator.html#ab9aa9f81e61ec1ab06ca4abdba9b4ef1">freezeManagerState</a> and <a class="el" href="classopenassetio_1_1host_a_p_i_1_1transactions_1_1_transaction_coordinator.html#a6611b27206b2b75bfb7ba5854c5708ae">thawManagerState</a> methods provide a mechanism by which a <a class="el" href="glossary.html#host">host</a> can obtain a portable version of the manager's state token for a given context for distribution to other processes that are logically connected.</p>
+<p>The <a class="el" href="classopenassetio_1_1host_a_p_i_1_1_manager_1_1_manager.html#aba42920d4e7edb1217bc90252a5687c1">Manager.persistenceTokenForContext</a> and <a class="el" href="classopenassetio_1_1host_a_p_i_1_1_manager_1_1_manager.html#a9e5137741cdf52fa1f904ae1a75a78f2">contextFromPersistenceToken</a> methods provide a mechanism by which a <a class="el" href="glossary.html#host">host</a> can obtain a portable version of the manager's state token for a given context for distribution to other processes that are logically connected.</p>
 <div align="center">
 <img src="inline_umlgraph_2.png" />
 </div>
 <dl class="section note"><dt>Note</dt><dd>The above diagram omits the interaction between the Manager and ManagerInterface classes for readability. Right-click to open in a larger view.</dd></dl>
-<p>This mechanism allows for distributed API calls to be anchored to specific snapshot of a manager's view of the world. It is not intended to be used to group discrete publishing actions into a batch. This is covered by the separate transaction API.</p>
+<p>This mechanism allows for distributed API calls to be anchored to specific snapshot of a manager's view of the world. It is not intended to be used to group discrete publishing actions into a batch. This (may be) covered (in the future) by a separate transaction API.</p>
 <p>The reason for this is that a host may need to perform multiple independent transactions during the lifetime of a single context.</p>
 <h1><a class="anchor" id="stable_resolution_manager_state_guidelines"></a>
 Implementation Guidelines</h1>
 <ul>
-<li>Because a thawed state may be passed to multiple child processes, the manager must be prepared for the state to be restored more than once, at the same time.</li>
-<li>The current transaction state is encoded in the token. A <a class="el" href="glossary.html#host">host</a> is responsible for making sure that in a distributed context scenario, where the same state is used in multiple processes, no <a class="el" href="transactions.html#transactions_action_groups">Action Groups</a> are pushed/popped in these parallel contexts such that a transaction would be started, cancelled or finished. In other words, the Host must ensure that there is only ever, globally, a single instance of any particular state object when controlling a transaction - either manually, or via an action group. This is to ensure that the transaction state does not become inconsistent across threads/processes.</li>
+<li>Because a state restored from a persistence token may be passed to multiple child processes, the manager must be prepared for the state to be restored more than once, at the same time. </li>
 </ul>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="transactions.html">Transactions</a> </dd></dl>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.3.1-->
