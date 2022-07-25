@@ -109,8 +109,7 @@ $(document).ready(function(){initNavTree('namespaceopenassetio_1_1v1.html','');}
   <div class="summary">
 <a href="#namespaces">Namespaces</a> &#124;
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#typedef-members">Typedefs</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#typedef-members">Typedefs</a>  </div>
   <div class="headertitle">
 <div class="title">openassetio::v1 Namespace Reference</div>  </div>
 </div><!--header-->
@@ -133,12 +132,22 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classopenassetio_1_1v1_1_1_context.html">Context</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="classopenassetio_1_1v1_1_1_context.html" title="The Context object is used to convey information about the calling environment to a manager...">Context</a> object is used to convey information about the calling environment to a <a class="el" href="glossary.html#manager">manager</a>.  <a href="classopenassetio_1_1v1_1_1_context.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classopenassetio_1_1v1_1_1_logger_interface.html">LoggerInterface</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">An abstract base class that defines the receiving interface for log messages generated a <a class="el" href="glossary.html#manager">manager</a> or the API middleware.  <a href="classopenassetio_1_1v1_1_1_logger_interface.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classopenassetio_1_1v1_1_1_traits_data.html">TraitsData</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A transport-level container for data exchange between a <a class="el" href="glossary.html#host">host</a> and a <a class="el" href="glossary.html#manager">manager</a>.  <a href="classopenassetio_1_1v1_1_1_traits_data.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
+<tr class="memitem:a8573d9597eec4cf3f5e0387156fbef44"><td class="memTemplParams" colspan="2">template&lt;std::size_t N&gt; </td></tr>
+<tr class="memitem:a8573d9597eec4cf3f5e0387156fbef44"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceopenassetio_1_1v1.html#a8573d9597eec4cf3f5e0387156fbef44">EnumNames</a> = std::array&lt; std::string_view, N &gt;</td></tr>
+<tr class="memdesc:a8573d9597eec4cf3f5e0387156fbef44"><td class="mdescLeft">&#160;</td><td class="mdescRight">Storage for enum name lookup array.  <a href="#a8573d9597eec4cf3f5e0387156fbef44">More...</a><br /></td></tr>
+<tr class="separator:a8573d9597eec4cf3f5e0387156fbef44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64e8ac1e6ab9e446a03a134b59b5de66"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceopenassetio_1_1v1.html#a64e8ac1e6ab9e446a03a134b59b5de66">EnumIdx</a> = <a class="el" href="namespaceopenassetio_1_1v1.html#a8573d9597eec4cf3f5e0387156fbef44">EnumNames</a>&lt; 0 &gt;::size_type</td></tr>
+<tr class="memdesc:a64e8ac1e6ab9e446a03a134b59b5de66"><td class="mdescLeft">&#160;</td><td class="mdescRight">Explicit enum type so that name lookups do not require a cast.  <a href="#a64e8ac1e6ab9e446a03a134b59b5de66">More...</a><br /></td></tr>
+<tr class="separator:a64e8ac1e6ab9e446a03a134b59b5de66"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9259b8747e04a2617e45e526fda835d7"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceopenassetio_1_1v1.html#a9259b8747e04a2617e45e526fda835d7">InfoDictionaryValue</a> = std::variant&lt; <a class="el" href="namespaceopenassetio_1_1v1.html#a39011fca2df8f8b3d2cf72a39108c588">Bool</a>, <a class="el" href="namespaceopenassetio_1_1v1.html#a1941127620eb673d937ee1117a94497c">Int</a>, <a class="el" href="namespaceopenassetio_1_1v1.html#a8e3779455205500f06002645c670f038">Float</a>, <a class="el" href="namespaceopenassetio_1_1v1.html#a376207d46bd161163b9089964e8fbed6">Str</a> &gt;</td></tr>
 <tr class="memdesc:a9259b8747e04a2617e45e526fda835d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Types available as values in a InfoDictionary.  <a href="#a9259b8747e04a2617e45e526fda835d7">More...</a><br /></td></tr>
 <tr class="separator:a9259b8747e04a2617e45e526fda835d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -164,12 +173,16 @@ Typedefs</h2></td></tr>
 <tr class="memitem:a376207d46bd161163b9089964e8fbed6"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceopenassetio_1_1v1.html#a376207d46bd161163b9089964e8fbed6">Str</a> = std::string</td></tr>
 <tr class="memdesc:a376207d46bd161163b9089964e8fbed6"><td class="mdescLeft">&#160;</td><td class="mdescRight">String value type.  <a href="#a376207d46bd161163b9089964e8fbed6">More...</a><br /></td></tr>
 <tr class="separator:a376207d46bd161163b9089964e8fbed6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:ab4d0cd4c5f2168ad4092cf494190d98c"><td class="memTemplParams" colspan="2">template&lt;class T , typename... Args&gt; </td></tr>
-<tr class="memitem:ab4d0cd4c5f2168ad4092cf494190d98c"><td class="memTemplItemLeft" align="right" valign="top">std::shared_ptr&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceopenassetio_1_1v1.html#ab4d0cd4c5f2168ad4092cf494190d98c">makeShared</a> (Args &amp;&amp;...args)</td></tr>
-<tr class="separator:ab4d0cd4c5f2168ad4092cf494190d98c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">Identifiers</div></td></tr>
+<tr><td colspan="2"><div class="groupText"><p>Both <a class="el" href="glossary.html#host">hosts</a> and <a class="el" href="glossary.html#manager">managers</a> must have a unique identifier.</p>
+<p>The following aliases ensure that a consistent type is used for these identifiers, and allows semantic documentation of an identifier as a parameter/return type. </p>
+</div></td></tr>
+<tr class="memitem:a7e82ad242271d065c76fd306ad38f4da"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceopenassetio_1_1v1.html#a7e82ad242271d065c76fd306ad38f4da">Identifier</a> = <a class="el" href="namespaceopenassetio_1_1v1.html#a376207d46bd161163b9089964e8fbed6">Str</a></td></tr>
+<tr class="memdesc:a7e82ad242271d065c76fd306ad38f4da"><td class="mdescLeft">&#160;</td><td class="mdescRight">A <a class="el" href="glossary.html#host">host</a> or <a class="el" href="glossary.html#manager">manager</a> identifier.  <a href="#a7e82ad242271d065c76fd306ad38f4da">More...</a><br /></td></tr>
+<tr class="separator:a7e82ad242271d065c76fd306ad38f4da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85da9c7e6b9c400a51a15b9f304803be"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceopenassetio_1_1v1.html#a85da9c7e6b9c400a51a15b9f304803be">Identifiers</a> = std::vector&lt; <a class="el" href="namespaceopenassetio_1_1v1.html#a7e82ad242271d065c76fd306ad38f4da">Identifier</a> &gt;</td></tr>
+<tr class="memdesc:a85da9c7e6b9c400a51a15b9f304803be"><td class="mdescLeft">&#160;</td><td class="mdescRight">A list of identifiers.  <a href="#a85da9c7e6b9c400a51a15b9f304803be">More...</a><br /></td></tr>
+<tr class="separator:a85da9c7e6b9c400a51a15b9f304803be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Typedef Documentation</h2>
 <a class="anchor" id="a39011fca2df8f8b3d2cf72a39108c588"></a>
@@ -186,6 +199,34 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a64e8ac1e6ab9e446a03a134b59b5de66"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespaceopenassetio_1_1v1.html#a64e8ac1e6ab9e446a03a134b59b5de66">EnumIdx</a> =  <a class="el" href="namespaceopenassetio_1_1v1.html#a8573d9597eec4cf3f5e0387156fbef44">EnumNames</a>&lt;0&gt;::size_type</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Explicit enum type so that name lookups do not require a cast. </p>
+
+</div>
+</div>
+<a class="anchor" id="a8573d9597eec4cf3f5e0387156fbef44"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespaceopenassetio_1_1v1.html#a8573d9597eec4cf3f5e0387156fbef44">EnumNames</a> =  std::array&lt;std::string_view, N&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Storage for enum name lookup array. </p>
+
+</div>
+</div>
 <a class="anchor" id="a8e3779455205500f06002645c670f038"></a>
 <div class="memitem">
 <div class="memproto">
@@ -197,6 +238,34 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Real value type. </p>
+
+</div>
+</div>
+<a class="anchor" id="a7e82ad242271d065c76fd306ad38f4da"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespaceopenassetio_1_1v1.html#a7e82ad242271d065c76fd306ad38f4da">Identifier</a> =  <a class="el" href="namespaceopenassetio_1_1v1.html#a376207d46bd161163b9089964e8fbed6">Str</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A <a class="el" href="glossary.html#host">host</a> or <a class="el" href="glossary.html#manager">manager</a> identifier. </p>
+
+</div>
+</div>
+<a class="anchor" id="a85da9c7e6b9c400a51a15b9f304803be"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespaceopenassetio_1_1v1.html#a85da9c7e6b9c400a51a15b9f304803be">Identifiers</a> =  std::vector&lt;<a class="el" href="namespaceopenassetio_1_1v1.html#a7e82ad242271d065c76fd306ad38f4da">Identifier</a>&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A list of identifiers. </p>
 
 </div>
 </div>
@@ -253,24 +322,6 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>String value type. </p>
-
-</div>
-</div>
-<h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="ab4d0cd4c5f2168ad4092cf494190d98c"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::shared_ptr&lt;T&gt; openassetio::v1::makeShared </td>
-          <td>(</td>
-          <td class="paramtype">Args &amp;&amp;...&#160;</td>
-          <td class="paramname"><em>args</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Make an instance wrapped in a shared smart pointer. </p>
 
 </div>
 </div>

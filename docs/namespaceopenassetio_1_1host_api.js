@@ -1,7 +1,7 @@
 var namespaceopenassetio_1_1host_api =
 [
     [ "Manager", "namespaceopenassetio_1_1host_api_1_1_manager.html", "namespaceopenassetio_1_1host_api_1_1_manager" ],
-    [ "ManagerFactoryInterface", "namespaceopenassetio_1_1host_api_1_1_manager_factory_interface.html", "namespaceopenassetio_1_1host_api_1_1_manager_factory_interface" ],
-    [ "Session", "namespaceopenassetio_1_1host_api_1_1_session.html", "namespaceopenassetio_1_1host_api_1_1_session" ],
+    [ "ManagerFactory", "namespaceopenassetio_1_1host_api_1_1_manager_factory.html", "namespaceopenassetio_1_1host_api_1_1_manager_factory" ],
+    [ "ManagerInterfaceFactoryInterface", "namespaceopenassetio_1_1host_api_1_1_manager_interface_factory_interface.html", "namespaceopenassetio_1_1host_api_1_1_manager_interface_factory_interface" ],
     [ "terminology", "namespaceopenassetio_1_1host_api_1_1terminology.html", "namespaceopenassetio_1_1host_api_1_1terminology" ]
 ];
