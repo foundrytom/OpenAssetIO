@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
-# This bootstrap script is used by both the Github CI action and the
-# Vagrant VM configuration.
+# This bootstrap script is used by both the Github CI action
 
 set -xeo pipefail
 
@@ -16,3 +15,4 @@ conan profile new default --detect --force
 # package repo.
 conan install --install-folder "$CONAN_USER_HOME" --build=missing \
     "$WORKSPACE/resources/build"
+brew install ccache

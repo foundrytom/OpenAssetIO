@@ -42,6 +42,13 @@ jobs:
         path: ~/conan
         key: ${{ matrix.config.os }}-conan
 
+    - name: Cache ccache
+      id: cache-ccache
+      uses: actions/cache@v2
+      with:
+        path: ~/ccache
+        key: ${{ matrix.config.os }}-ccache
+
     - name: Install dependencies (Unix)
       if: runner.os != 'Windows'
       # Configure the system and install library dependencies via conan
@@ -67,6 +74,7 @@ jobs:
         --install-prefix $GITHUB_WORKSPACE/dist
         --toolchain $HOME/conan/conan_paths.cmake
         --preset test
+        -DCMAKE_CXX_COMPILER_LAUNCHER=/usr/bin/ccache
 
     - name: Configure CMake build (Windows)
       if: runner.os == 'Windows'
@@ -83,6 +91,8 @@ jobs:
       if: runner.os != 'Windows'
       run: |
         ctest -VV --test-dir build
+      env:
+        CCACHE_DIR: "$HOME/ccache"
 
     - name: Build, install and test (Windows)
       if: runner.os == 'Windows'
