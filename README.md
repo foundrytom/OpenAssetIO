@@ -128,7 +128,7 @@ Platform compatible [Docker](https://www.docker.com/) images [here](https://gith
 
 The CY22 image contains all dependencies currently required for building
 OpenAssetIO. For example, to build and install the C/C++ component of
-OpenAssetIO (by default  to a `dist` directory under the build 
+OpenAssetIO (by default  to a `dist` directory under the build
 directory)
 via a container, from the repository root run
 
@@ -150,3 +150,5 @@ For detailed instructions see [BUILDING](BUILDING.md).
 
 > Maya&reg;, is a registered trademark of Autodesk, Inc., and/or its
 > subsidiaries and/or affiliates in the USA and/or other countries.
+
+<!-- SPDX-License-Identifier: Apache-2.0 -->
