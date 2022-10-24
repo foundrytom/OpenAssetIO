@@ -4,6 +4,6 @@ updates:
   - package-ecosystem: "github-actions"
     directory: "/"  # See docs, they say not to use '.github'
     schedule:
-      interval: "weekly"
+      interval: "daily"
     commit-message:
       prefix: "[CI]"
