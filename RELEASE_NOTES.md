@@ -6,6 +6,13 @@ v1.0.0-alpha.x
 
 ### Breaking changes
 
+- OpenAssetIO now has a soft dependency on the `importlib_metadata`
+  Python package (5.0). If you have been installing the project
+  manually by extending `PYTHONPATH` (instead of using `pip`) you may
+  also need to additionally satisfy this dependency if you wish to make
+  use of entry point based discovery of Python plugins.
+  [#762](https://github.com/OpenAssetIO/OpenAssetIO/issues/762)
+
 - The `PythonPluginSystem` no longer clears existing plugin
   registrations when `scan` is called. The
   `PythonPluginSystemManagerImplementationFactory` has been updated to
@@ -33,6 +40,17 @@ v1.0.0-alpha.x
   `.addTraits` / `.setTraitProperty` / `.getTraitProperty` /
   `.traitPropertyKeys` / copy-constructor.
   [#743](https://github.com/OpenAssetIO/OpenAssetIO/issues/743)
+
+
+### New features
+
+- Added entry point based discovery of Python manager plugins. This
+  allows pure Python manager plugins to be deployed and managed using
+  `pip`, without the need to wrangle `OPENASSETIO_PLUGIN_PATH`. The
+  `openassetio.manager_plugin` entry point should expose a module
+  providing a top-level `plugin` variable, holding a `ManagerPlugin`
+  derived class.
+  [#762](https://github.com/OpenAssetIO/OpenAssetIO/issues/762)
 
 
 ### Improvements

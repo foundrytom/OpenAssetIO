@@ -22,11 +22,17 @@ These tests check the functionality of the PythonPluginSystem class.
 # pylint: disable=missing-class-docstring,missing-function-docstring
 
 import os
+import sys
 
 import pytest
 
 from openassetio.log import ConsoleLogger
 from openassetio.pluginSystem import PythonPluginSystem
+
+
+# We use this entry point to allow us to share test resources with
+# the implementation factory tests.
+PLUGIN_ENTRY_POINT_NAME = "openassetio.manager_plugin"
 
 
 class Test_PythonPluginSystem_scan:
@@ -100,6 +106,43 @@ class Test_PythonPluginSystem_scan:
 
         expected_identifiers = set([package_plugin_identifier, module_plugin_identifier])
         assert set(a_plugin_system.identifiers()) == expected_identifiers
+
+
+class Test_PythonPluginSystem_scan_entry_points:
+    def test_when_no_package_with_entry_point_installed_then_nothing_loaded_and_true_returned(
+        self, a_plugin_system
+    ):
+        assert a_plugin_system.scan_entry_points(PLUGIN_ENTRY_POINT_NAME) is True
+        assert not a_plugin_system.identifiers()
+
+    def test_when_entry_point_package_installed_then_loaded_and_true_returned(
+        self,
+        a_plugin_system,
+        an_entry_point_package_plugin_root,
+        entry_point_plugin_identifier,
+        monkeypatch,
+    ):
+        path_with_plugin = [an_entry_point_package_plugin_root] + sys.path
+        monkeypatch.setattr(sys, "path", path_with_plugin)
+
+        assert a_plugin_system.scan_entry_points(PLUGIN_ENTRY_POINT_NAME) is True
+        assert a_plugin_system.identifiers() == [entry_point_plugin_identifier]
+
+    def test_when_importlib_metadata_missing_then_a_warning_is_loggeed_and_false_returned(
+        self, mock_logger, monkeypatch
+    ):
+        # Remove any previously imported versions
+        sys.modules.pop("importlib_metadata", None)
+        monkeypatch.setattr(sys, "path", [])
+
+        plugin_system = PythonPluginSystem(mock_logger)
+        assert plugin_system.scan_entry_points("some.entrypoint") is False
+
+        mock_logger.mock.log.assert_called_once_with(
+            mock_logger.Severity.kWarning,
+            "PythonPluginSystem: Can not load entry point plugins as the importlib_metadata "
+            "package is unavailable.",
+        )
 
 
 @pytest.fixture

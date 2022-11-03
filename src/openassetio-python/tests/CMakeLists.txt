@@ -7,6 +7,13 @@ add_subdirectory(internal/resources/_openassetio_test)
 #-----------------------------------------------------------------------
 # Core Python pytest targets.
 
+# Install openassetio-specific dependencies that allow us to
+# extend PYTHONPATH without needing to pip install to run tests.
+openassetio_add_python_environment_dependency(
+    openassetio.internal.python.install-deps
+    "${PROJECT_SOURCE_DIR}/src/openassetio-python/requirements.txt"
+)
+
 # Install test-specific dependencies (e.g. pytest).
 openassetio_add_python_environment_dependency(
     openassetio.internal.python-pytest.install-deps

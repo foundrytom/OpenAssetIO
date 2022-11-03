@@ -31,11 +31,12 @@ __all__ = ["PythonPluginSystem"]
 
 class PythonPluginSystem(object):
     """
-    Loads Python Packages on a custom search path. If they manager a
-    top-level 'plugin' attribute, that holds a class derived from
-    PythonPluginSystemPlugin, it will be registered with its identifier.
-    Once a plug-in has registered an identifier, any subsequent
-    registrations with that id will be skipped.
+    Loads Python Packages, using entry point discovery or from a custom
+    search path. If they manager a top-level 'plugin' attribute, that
+    holds a class derived from PythonPluginSystemPlugin, it will be
+    registered with its identifier. Once a plug-in has registered an
+    identifier, any subsequent registrations with that id will be
+    skipped.
     """
 
     __validModuleExtensions = (".py", ".pyc")
@@ -109,6 +110,64 @@ class PythonPluginSystem(object):
                 )
 
                 self.__load(itemPath)
+
+    def scan_entry_points(self, entryPointName):
+        """
+        Searches packages for entry points that define a
+        PythonPluginSystemPlugin through a top-level `plugin` variable.
+
+        @note The order of discovery is determined by `importlib`, only
+        the first plugin with any given identifier will be registered.
+
+        @param entryPointName `str` The entry point name to search for
+        (see: importlib_metadata.entry_points group).
+
+        @returns True if entry point discovery is possible, False if
+        there was a problem loading importlib_metadata.
+        """
+
+        # We opt to use the backport implementation of modern importlib to avoid
+        # needing to support 3+ code paths to cover Python 3.7 to 3.10. It is
+        # made available for 3.7 onwards (for now, at least).
+        # Pip installs should have this module available, but other methods may not,
+        # so be tolerant of it being missing.
+        try:
+            import importlib_metadata  #pylint: disable=import-outside-toplevel
+        except ImportError:
+            self.__logger.warning(
+                "PythonPluginSystem: Can not load entry point plugins as the importlib_metadata "
+                "package is unavailable."
+            )
+            return False
+
+        self.__logger.debug(
+            f"PythonPluginSystem: Searching packages for '{entryPointName}' entry points."
+        )
+
+        for entryPoint in importlib_metadata.entry_points(group=entryPointName):
+
+            self.__logger.debug(f"PythonPluginSystem: Found entry point in {entryPoint.name}")
+            try:
+                module = entryPoint.load()
+                name = entryPoint.name
+                debugIdentifier = f"{name} ({module.__file__})"
+
+                if not hasattr(module, "plugin"):
+                    self.__logger.error(
+                        f"PythonPluginSystem: No top-level 'plugin' variable in {debugIdentifier}"
+                    )
+                    continue
+
+            except Exception as ex:  # pylint: disable=broad-except
+                self.__logger.warning(
+                    f"PythonPluginSystem: Caught exception loading {debugIdentifier}:\n{ex}"
+                )
+                continue
+
+            path = getattr(module, "__file__", name)
+            self.register(module.plugin, path)
+
+        return True
 
     def identifiers(self):
         """
