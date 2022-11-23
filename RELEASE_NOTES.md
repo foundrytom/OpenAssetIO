@@ -49,7 +49,8 @@ v1.0.0-alpha.x
   `pip`, without the need to wrangle `OPENASSETIO_PLUGIN_PATH`. The
   `openassetio.manager_plugin` entry point should expose a module
   providing a top-level `plugin` variable, holding a `ManagerPlugin`
-  derived class.
+  derived class. This can be disabled by setting the
+  `OPENASSETIO_DISABLE_ENTRYPOINTS_PLUGINS` env var to any value.
   [#762](https://github.com/OpenAssetIO/OpenAssetIO/issues/762)
 
 
