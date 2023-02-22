@@ -40,10 +40,12 @@ class OpenAssetIOConan(ConanFile):
         # Same as ASWF CY2022 Docker image:
         # https://github.com/AcademySoftwareFoundation/aswf-docker/blob/master/ci-base/README.md
         self.requires("pybind11/2.8.1")
+        # TOML library
+        self.requires("tomlplusplus/3.2.0")
+        # Pin ncurses recipe as newer ones only support Conan 2
+        self.requires("ncurses/6.2@#54f100a8e4a94700d4123ed31420506c")
 
     def build_requirements(self):
-        # TOML library
-        self.tool_requires("tomlplusplus/3.2.0")
         # Test framework
         self.tool_requires("catch2/2.13.8")
         # Mocking library
