@@ -480,10 +480,17 @@ class ManagerInterface(_openassetio.managerApi.ManagerInterface):
     # @{
 
     def getWithRelationship(
-        self, relationshipTraitsData, entityReferences, context, hostSession, resultTraitSet=None
+        self,
+        relationshipTraitsData,
+        entityReferences,
+        context,
+        hostSession,
+        successCallback,
+        errorCallback,
+        resultTraitSet=None,
     ):
         """
-        Return entity references that are related to the input
+        Queries entity references that are related to the input
         references by the relationship defined by a set of traits and
         their properties.
 
@@ -513,6 +520,24 @@ class ManagerInterface(_openassetio.managerApi.ManagerInterface):
         logging and provides access to the openassetio.managerApi.Host
         object representing the process that initiated the API session.
 
+        @param successCallback Callback that must be called for each
+        successful relationship query for an input entity reference. It
+        should be given the corresponding index of the entity reference
+        in `entityReferences` along with a list of entity references for
+        entities that are related by the input entity by the specified
+        relationship. If there are no relations, an empty list should be
+        used. The callback must be called on the same thread that
+        initiated the call to `getWithRelationship`.
+
+        @param errorCallback Callback that must be called for each
+        failed relationship query for an entity reference. It should be
+        given the corresponding index of the entity reference in
+        `entityReferences` along with a populated
+        @fqref{BatchElementError} "BatchElementError" (see
+        @fqref{BatchElementError.ErrorCode} "ErrorCodes"). The callback
+        must be called on the same thread that initiated the call to
+        `getWithRelationship`.
+
         @param resultTraitSet `Set[str]` or None, a hint as to what
         traits the returned entities should have.
 
@@ -527,13 +552,21 @@ class ManagerInterface(_openassetio.managerApi.ManagerInterface):
         host whether or not you are capable of handling queries for
         those relationships in this method.
         """
-        return [[] for _ in entityReferences]
+        for i in range(len(entityReferences)):
+            successCallback(i, [])
 
     def getWithRelationships(
-        self, relationshipTraitsDatas, entityReference, context, hostSession, resultTraitSet=None
+        self,
+        relationshipTraitsDatas,
+        entityReference,
+        context,
+        hostSession,
+        successCallback,
+        errorCallback,
+        resultTraitSet=None,
     ):
         """
-        Returns entity references that are related to the input
+        Queries entity references that are related to the input
         reference by the relationships defined by a set of traits and
         their properties.
 
@@ -563,6 +596,24 @@ class ManagerInterface(_openassetio.managerApi.ManagerInterface):
 
         @param context Context The calling context.
 
+        @param successCallback Callback that must be called for each
+        successful relationship query for an input relationship. It
+        should be given the corresponding index of the relationship
+        definition in in `relationshipTraitsDatas` along with a list of
+        entity references for entities that are related by the input
+        entity by that relationship. If there are no relations, an empty
+        list should be used. The callback must be called on the same
+        thread that initiated the call to `getWithRelationships`.
+
+        @param errorCallback Callback that must be called for each
+        failed query for a relationship. It should be given the
+        corresponding index of the relationship in
+        `relationshipTraitsDatas` along with a populated
+        @fqref{BatchElementError} "BatchElementError" (see
+        @fqref{BatchElementError.ErrorCode} "ErrorCodes"). The callback
+        must be called on the same thread that initiated the call to
+        `getWithRelationships`.
+
         @param resultTraitSet `Set[str]` or None, a hint as to what
         traits the returned entities should have.
 
@@ -577,6 +628,7 @@ class ManagerInterface(_openassetio.managerApi.ManagerInterface):
         host whether or not you are capable of handling queries for
         those relationships in this method.
         """
-        return [[] for _ in relationshipTraitsDatas]
+        for i in range(len(relationshipTraitsDatas)):
+            successCallback(i, [])
 
     ## @}
