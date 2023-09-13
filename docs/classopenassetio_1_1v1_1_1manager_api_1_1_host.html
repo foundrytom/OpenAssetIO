@@ -138,9 +138,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a23ee7fe8e44aa1895e2bfcf5d6b7804e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceopenassetio_1_1v1.html#a376207d46bd161163b9089964e8fbed6">Str</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classopenassetio_1_1v1_1_1manager_api_1_1_host.html#a23ee7fe8e44aa1895e2bfcf5d6b7804e">displayName</a> () const </td></tr>
 <tr class="memdesc:a23ee7fe8e44aa1895e2bfcf5d6b7804e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a human readable name to be used to reference this specific host in user-facing messaging.  <a href="#a23ee7fe8e44aa1895e2bfcf5d6b7804e">More...</a><br /></td></tr>
 <tr class="separator:a23ee7fe8e44aa1895e2bfcf5d6b7804e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac82a7565b39bc7092b624bc2c54c864a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceopenassetio_1_1v1.html#a8ef60a7889e0a9346624d77b0127be0a">InfoDictionary</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classopenassetio_1_1v1_1_1manager_api_1_1_host.html#ac82a7565b39bc7092b624bc2c54c864a">info</a> () const </td></tr>
-<tr class="memdesc:ac82a7565b39bc7092b624bc2c54c864a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns other information that may be useful about the host.  <a href="#ac82a7565b39bc7092b624bc2c54c864a">More...</a><br /></td></tr>
-<tr class="separator:ac82a7565b39bc7092b624bc2c54c864a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77822ddc3c077028f2b0853dc89a07f7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceopenassetio_1_1v1.html#a8ef60a7889e0a9346624d77b0127be0a">InfoDictionary</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classopenassetio_1_1v1_1_1manager_api_1_1_host.html#a77822ddc3c077028f2b0853dc89a07f7">info</a> ()</td></tr>
+<tr class="memdesc:a77822ddc3c077028f2b0853dc89a07f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns other information that may be useful about the host.  <a href="#a77822ddc3c077028f2b0853dc89a07f7">More...</a><br /></td></tr>
+<tr class="separator:a77822ddc3c077028f2b0853dc89a07f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -152,7 +152,7 @@ Static Public Member Functions</h2></td></tr>
 <div class="textblock"><p>The <a class="el" href="classopenassetio_1_1v1_1_1manager_api_1_1_host.html" title="The Host object represents the tool or application that created a session with OpenAssetIO, and wants to query or store information within a manager. ">Host</a> object represents the tool or application that created a session with OpenAssetIO, and wants to query or store information within a <a class="el" href="glossary.html#manager">manager</a>. </p>
 <p>The <a class="el" href="classopenassetio_1_1v1_1_1manager_api_1_1_host.html" title="The Host object represents the tool or application that created a session with OpenAssetIO, and wants to query or store information within a manager. ">Host</a> provides a generalised API to query the identity of the caller of the API. In the future, this interface may be extended to allow retrieval of information about available documents as well as which entities are used within these documents.</p>
 <p>Hosts should never be directly constructed by the Manager's implementation. Instead, the <a class="el" href="classopenassetio_1_1v1_1_1manager_api_1_1_host_session.html">managerApi::HostSession</a> class provided to all manager API entry points provides access to the current host through the <a class="el" href="classopenassetio_1_1v1_1_1manager_api_1_1_host_session.html#a8c55c13a314094ade44e2653e26e5908">HostSession.host</a> method</p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000008">Todo:</a></b></dt><dd>Add auditing functionality. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000007">Todo:</a></b></dt><dd>Add auditing functionality. </dd></dl>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a class="anchor" id="a66efbc9989cb03160a0f07ecf59cca7a"></a>
 <div class="memitem">
@@ -213,7 +213,7 @@ Static Public Member Functions</h2></td></tr>
 <p>The identifier will be different for each tool or application, but common to all versions of any one. The identifier will use only alpha-numeric characters and '.', '_' or '-', commonly in the form of a 'reverse-DNS' style string, for example: </p><pre class="fragment">"org.openassetio.test.host"</pre> 
 </div>
 </div>
-<a class="anchor" id="ac82a7565b39bc7092b624bc2c54c864a"></a>
+<a class="anchor" id="a77822ddc3c077028f2b0853dc89a07f7"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -221,7 +221,7 @@ Static Public Member Functions</h2></td></tr>
           <td class="memname"><a class="el" href="namespaceopenassetio_1_1v1.html#a8ef60a7889e0a9346624d77b0127be0a">InfoDictionary</a> info </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
