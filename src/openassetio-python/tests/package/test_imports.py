@@ -62,6 +62,9 @@ class Test_package_imports:
     def test_importing_TraitsData_succeeds(self):
         from openassetio import TraitsData
 
+    def test_importing_utils_succeeds(self):
+        from openassetio import utils
+
 
 class Test_core_imports:
     def test_importing_audit_succeeds(self):

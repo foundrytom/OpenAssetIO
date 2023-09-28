@@ -61,6 +61,7 @@ target_sources(
     src/managerApi/EntityReferencePagerInterfaceBinding.cpp
     src/managerApi/ManagerInterfaceBinding.cpp
     src/managerApi/ManagerStateBaseBinding.cpp
+    src/utilsBinding.cpp
 )
 
 target_link_libraries(openassetio-python-module

@@ -50,6 +50,13 @@ using Float = double;
 using Str = std::string;
 
 /**
+ * String View type
+ *
+ * This type is guaranteed to be API compatible with `std::string_view`.
+ */
+  using StrView = std::string_view;
+
+/**
  * Map/Dict of string to string.
  */
 using StrMap = std::unordered_map<Str, Str>;
