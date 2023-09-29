@@ -52,6 +52,10 @@ class Test_pathToFileURL_pathFromFileURL_roundtrip:
                     "file:///Testing/exr/cathedral/cathedral_withdisparity_%25V.%23%23%23%23.exr",
                 ),
                 (
+                    "/D:/pretending/to/be/windows",
+                    "file:///D:/pretending/to/be/windows",
+                ),
+                (
                     "/i /am/an awkäd/🎃 uniĆø∂e/path",
                     "file:///i%20/am/an%20awk%C3%A4d/%F0%9F%8E%83%20uni%C4%86%C3%B8%E2%88%82e/path",
                 ),
