@@ -70,12 +70,10 @@ API documentation
 The documentation for OpenAssetIO can be found here:
    https://openassetio.github.io/OpenAssetIO.
 """
-# TODO(DF): @pylint
-from ._openassetio import (  # pylint: disable=import-error
+# pylint: disable=import-error,wrong-import-position,no-name-in-module
+from ._openassetio import (
     constants,
     TraitsData,
     Context,
     EntityReference,
 )
-
-# pylint: disable=wrong-import-position
