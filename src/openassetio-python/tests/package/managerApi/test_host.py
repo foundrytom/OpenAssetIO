@@ -25,6 +25,8 @@ import pytest
 from openassetio import Context
 from openassetio.managerApi import Host
 
+import sys
+
 
 @pytest.fixture
 def host(mock_host_interface):
