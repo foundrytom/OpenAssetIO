@@ -115,7 +115,7 @@ Requesting Thumbnail Creation</h1>
 <p>It seems fair then, to ask the <a class="el" href="glossary.html#host">host</a> to provide a thumbnail with the entity when it is <a class="el" href="glossary.html#publish">published</a>. More often than not, the host not only understands how this might be done, but has the relevant data to hand to do it.</p>
 <p>To this end, a <a class="el" href="glossary.html#manager">manager</a> can set the WantsThumbnail trait in it's response to <a class="el" href="classopenassetio_1_1v1_1_1manager_api_1_1_manager_interface.html#a748f20ef0a79caf88bc6eff1f096453f">managementPolicy</a> for any given set of entity <a class="el" href="glossary.html#trait">traits</a>.</p>
 <p>If supported by the host, it will then:</p><ul>
-<li>Call <a class="el" href="glossary.html#glossary_preflight">preflight</a> with the target entity and the traits data from the ThumbnailSpecification, using the <a class="el" href="namespaceopenassetio_1_1v1_1_1access.html#a30a9c0800023951ccb5216dab7f4c230aac7744adf0868e7c882fda6a12cf3f5a">kCreateRelated</a> access mode.</li>
+<li>Call <a class="el" href="glossary.html#glossary_preflight">preflight</a> with the target entity and the traits data from the ThumbnailSpecification, using the <a class="el" href="namespaceopenassetio_1_1v1_1_1access.html#a30c467b0e5cfd9fb5ed7b58e84b06edeaac7744adf0868e7c882fda6a12cf3f5a">kCreateRelated</a> access mode.</li>
 <li>Call <a class="el" href="glossary.html#glossary_resolve">resolve</a> on the returned reference to determine the desired width/height/format for the thumbnail.</li>
 <li>Generate a thumbnail and <a class="el" href="glossary.html#glossary_register">register</a> it to the same reference.</li>
 </ul>
@@ -124,7 +124,7 @@ Requesting Thumbnail Creation</h1>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>Document the <a class="el" href="glossary.html#trait">traits</a> used to determine width/height/format, these should be the same as the fields of the ThumbnailSpecification.</dd></dl>
 <h1><a class="anchor" id="thumbnails_lookup"></a>
 Looking Up Existing Thumbnails</h1>
-<p>A host can use the standard <a class="el" href="classopenassetio_1_1v1_1_1host_api_1_1_manager.html#a279c7a4b4ed8951d4f88d23e1298547f">getWithRelationship</a> method of the <a class="el" href="glossary.html#manager">manager</a> to request the <a class="el" href="glossary.html#entity_reference">entity references</a> of any existing thumbnails that depict a particular <a class="el" href="glossary.html#entity">entity</a>.</p>
+<p>A host can use the standard <a class="el" href="classopenassetio_1_1v1_1_1host_api_1_1_manager.html#a9b8070bff767608d79f44b2d85c6a582">getWithRelationship</a> method of the <a class="el" href="glossary.html#manager">manager</a> to request the <a class="el" href="glossary.html#entity_reference">entity references</a> of any existing thumbnails that depict a particular <a class="el" href="glossary.html#entity">entity</a>.</p>
 <p>The call should supply a ThumbnailSpecification, configured with the desired size/format of the thumbnail. </p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
